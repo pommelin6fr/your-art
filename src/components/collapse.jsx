@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Collapse, Button, CardBody, Card } from 'reactstrap';
+import { Collapse, CardBody, Card } from 'reactstrap';
 
 const CollapseComponent = ({ title, content }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -8,9 +8,10 @@ const CollapseComponent = ({ title, content }) => {
 
   return (
     <React.StrictMode>
-      <Button color="primary" onClick={toggle} style={{ marginBottom: '1rem' }}>
+      <div onClick={toggle}>
         { title }
-      </Button>
+      </div>
+      <hr className="separator"/>
       <Collapse isOpen={isOpen}>
         <Card>
           <CardBody>

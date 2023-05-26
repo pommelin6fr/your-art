@@ -1,76 +1,42 @@
-import React, { useState } from 'react';
-import {
-  Carousel,
-  CarouselItem,
-  CarouselControl,
-  CarouselIndicators,
-  CarouselCaption,
-} from 'reactstrap';
+import React from "react";
 import * as R from "ramda";
 import { connect } from "react-redux";
 import "./css/slide.css";
 
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
-const SlideComponent = ({ items }) => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [animating, setAnimating] = useState(false);
 
-  const next = () => {
-    if (animating) return;
-    const nextIndex = activeIndex === items.length - 1 ? 0 : activeIndex + 1;
-    setActiveIndex(nextIndex);
-  };
-
-  const previous = () => {
-    if (animating) return;
-    const nextIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1;
-    setActiveIndex(nextIndex);
-  };
-
-  const goToIndex = (newIndex) => {
-    if (animating) return;
-    setActiveIndex(newIndex);
-  };
-
-  const slides = items.map((item) => {
-    return (
-      <CarouselItem
-        onExiting={() => setAnimating(true)}
-        onExited={() => setAnimating(false)}
-        key={item.src}
-        className = "artWork"
-      >
-        <img src={item.src} alt={item.altText} />
-        <CarouselCaption
-          captionText={item.caption}
-          captionHeader={item.caption}
-        />
-      </CarouselItem>
-    );
-  });
+const SlideComponent = ({ artWorkItems }) => {
+    const responsive = {
+        superLargeDesktop: {
+          // the naming can be any, depends on you.
+          breakpoint: { max: 4000, min: 3000 },
+          items: 5
+        },
+        desktop: {
+          breakpoint: { max: 3000, min: 1024 },
+          items: 5
+        },
+        tablet: {
+          breakpoint: { max: 1024, min: 464 },
+          items: 2
+        },
+        mobile: {
+          breakpoint: { max: 464, min: 0 },
+          items: 1
+        }
+      };
+      
 
   return (
-    <Carousel
-      activeIndex={activeIndex}
-      next={next}
-      previous={previous}
-    >
-      <CarouselIndicators
-        items={items}
-        activeIndex={activeIndex}
-        onClickHandler={goToIndex}
-      />
-      {slides}
-      <CarouselControl
-        direction="prev"
-        directionText="Previous"
-        onClickHandler={previous}
-      />
-      <CarouselControl
-        direction="next"
-        directionText="Next"
-        onClickHandler={next}
-      />
+    <Carousel responsive={responsive}>
+        {artWorkItems.map((artWorkItem, index) => (
+                <div key={index}>
+                    <img alt="artwork" src={artWorkItem.src} height="150px"  width="150px"></img>
+                </div>
+            )
+        )}
     </Carousel>
   );
 }
@@ -80,13 +46,11 @@ const mapStateToProps = (state) => {
     const imageItems = otherArtworkImages.map((imageUrl, i) => {
         return {
             src: imageUrl,
-            altText: `Slide ${i}`,
-            caption: `Slide ${i}`,
-            kay: i
+            key: i
         }
     });
     return {
-        items: imageItems,
+        artWorkItems: imageItems,
     }
 }
 

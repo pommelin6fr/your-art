@@ -38,7 +38,7 @@ const ArtWorkComponent = ({
 
     const subjectContent = (subjects, mediums, styles, materials) => {
         return (<table><tbody>
-            <tr><td>Suject</td><td>{subjects.join(", ")}</td></tr>
+            <tr><td>Subject</td><td>{subjects.join(", ")}</td></tr>
             <tr><td>Medium</td><td>{mediums.join(", ")}</td></tr>
             <tr><td>Style</td><td>{styles.join(", ")}</td></tr>
             <tr><td>Materials</td><td>{materials.join(", ")}</td></tr>
@@ -57,7 +57,7 @@ const ArtWorkComponent = ({
                     <CollapseComponent title="Description" content={ description }></CollapseComponent>
                 </div>
                 <div className="subject">
-                    <CollapseComponent title="Suject, Medium, Style, Materials" content={ subjectContent(subjects, mediums, styles, materials) }></CollapseComponent>
+                    <CollapseComponent title="Subject, Medium, Style, Materials" content={ subjectContent(subjects, mediums, styles, materials) }></CollapseComponent>
                 </div>
             </div>
             <div className="bottom-content">
