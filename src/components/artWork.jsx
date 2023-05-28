@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { loadData } from "../actions";
 import CollapseComponent from "./collapse";
 import SlideComponentContainer from "./slides";
+import "./css/artwork.css";
 
 
 const ArtWorkComponent = ({ 
@@ -37,7 +38,8 @@ const ArtWorkComponent = ({
     }, [loadData, id]);
 
     const subjectContent = (subjects, mediums, styles, materials) => {
-        return (<table><tbody>
+        return (
+        <table><tbody>
             <tr><td>Subject</td><td>{subjects.join(", ")}</td></tr>
             <tr><td>Medium</td><td>{mediums.join(", ")}</td></tr>
             <tr><td>Style</td><td>{styles.join(", ")}</td></tr>
@@ -52,15 +54,17 @@ const ArtWorkComponent = ({
                 <div className="picture">
                     <img src={ imageUrl } className="img-fluid" alt="imageUrl" width="500" height="300"/>
                 </div>
-                <div className=""></div>
+                <div className="right">
+                    <div>{ title }</div>
+                </div>
+            </div>
+            <div className="bottom-content">
                 <div className="description">
                     <CollapseComponent title="Description" content={ description }></CollapseComponent>
                 </div>
                 <div className="subject">
                     <CollapseComponent title="Subject, Medium, Style, Materials" content={ subjectContent(subjects, mediums, styles, materials) }></CollapseComponent>
                 </div>
-            </div>
-            <div className="bottom-content">
                 <SlideComponentContainer></SlideComponentContainer>
             </div>
         </div>

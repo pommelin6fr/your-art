@@ -1,0 +1,21 @@
+.container {
+    margin-top: 50px;
+}
+.top-content {
+    display: inline-flex;
+}
+
+.right {
+    margin-left: 20px;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.description {
+    padding: 20px;
+}
+
+.subject {
+    padding-left: 20px;
+
+}
