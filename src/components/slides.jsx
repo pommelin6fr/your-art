@@ -1,7 +1,5 @@
 import React from "react";
-import * as R from "ramda";
-import { connect } from "react-redux";
-import "./css/slide.css";
+import "./css/slide.scss";
 
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -41,21 +39,4 @@ const SlideComponent = ({ artWorkItems }) => {
   );
 }
 
-const mapStateToProps = (state) => {
-    const otherArtworkImages = R.pathOr([], ["data", "otherArtworkImages"], state)
-    const imageItems = otherArtworkImages.map((imageUrl, i) => {
-        return {
-            src: imageUrl,
-            key: i
-        }
-    });
-    return {
-        artWorkItems: imageItems,
-    }
-}
-
-const SlideComponentContainer = connect(
-    mapStateToProps,
-)(SlideComponent)
-
-export default SlideComponentContainer
+export default SlideComponent

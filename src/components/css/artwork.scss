@@ -1,0 +1,54 @@
+.container {
+    margin-top: 50px;
+}
+.top-content {
+    display: inline-flex;
+}
+
+.right {
+    margin-left: 20px;
+    font-size: 15px;
+    .title {
+        font-weight: bold;
+        font-size: 25px!important;
+    }
+    span {
+        padding: 3px;
+        &.artistName {
+            color: orange;
+        }
+    }
+    .price {
+        font-size: 30px!important;
+        font-weight: bold;
+    }
+    .button {
+        display: flex;
+        flex-direction: column;
+        button {
+            margin: 5px;
+        }
+    }
+    .aquire {
+        border-radius: 15px;
+        background-color: black;
+        width: 200px;
+        height: 30px;
+        color: white;
+    }
+
+    .offer {
+        @extend .aquire;
+        background-color: white;
+        color: black;
+    }
+}
+
+.description {
+    padding: 20px;
+}
+
+.subject {
+    padding-left: 20px;
+
+}

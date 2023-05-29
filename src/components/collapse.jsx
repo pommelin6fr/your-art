@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Collapse, CardBody, Card } from 'reactstrap';
+import "./css/collapse.scss"
 
 const CollapseComponent = ({ title, content }) => {
   const [isOpen, setIsOpen] = useState(false);
