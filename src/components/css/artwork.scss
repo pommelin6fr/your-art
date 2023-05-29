@@ -12,10 +12,17 @@
         font-weight: bold;
         font-size: 25px!important;
     }
+    div.small {
+        font-size: 12px;
+        margin-top: 10px;
+    }
     span {
         padding: 3px;
         &.artistName {
             color: orange;
+        }
+        &.country {
+            color: grey;
         }
     }
     .price {

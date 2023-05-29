@@ -9,7 +9,7 @@ import SlideComponent from "./slides";
 
 
 
-const ArtWorkComponent = ({ 
+const ArtWorkComponent = ({
     loadData, 
     imageUrl,
     title,
@@ -62,9 +62,11 @@ const ArtWorkComponent = ({
                 </div>
                 <div className="right">
                     <div className="title">{ title }</div>
-                    <div><span className="artistName">{ artistShort.fullname }</span><span>{ artistShort.country }</span></div>
-                    <div><span>{ category }</span><span>{ creationYear }</span></div>
-                    <div>{`${dimensions.width} W x ${dimensions.height}H x ${dimensions.depth} D in`}</div>
+                    <div><span className="artistName">{ artistShort.fullname }</span><span className="country">{ artistShort.country }</span></div>
+                    <div className="small">
+                        <span>{ category }</span><span>{ creationYear }</span>
+                        <div>{`${dimensions.width} W x ${dimensions.height}H x ${dimensions.depth} D in`}</div>
+                    </div>
                     <div className="price">{ price} €</div>
                     <div className="button">
                         {status === "AVAILABLE" ? <button className="aquire">Acquire</button> : ""}
